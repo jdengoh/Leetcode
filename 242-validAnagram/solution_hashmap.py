@@ -16,4 +16,3 @@ class Solution:
 
         # Compare hashmaps and return
         return s_map == t_map
-        

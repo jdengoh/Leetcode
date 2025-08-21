@@ -9,11 +9,11 @@ class Solution:
         """
 
         # left pointer
-        l = 0
+        left = 0
         # right pointer
-        r = len(s) - 1
+        right = len(s) - 1
 
-        while l<r:
-            s[l], s[r] = s[r], s[l]
-            l += 1
-            r -= 1
+        while left < right:
+            s[left], s[right] = s[right], s[left]
+            left += 1
+            right -= 1

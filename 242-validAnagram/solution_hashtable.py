@@ -20,8 +20,8 @@ class Solution:
 
         # Iterate length of s (which is also equals to length of t)
         for i in range(len(s)):
-            count[ord(s[i]) - ord('a')] += 1
-            count[ord(t[i]) - ord('a')] -= 1
+            count[ord(s[i]) - ord("a")] += 1
+            count[ord(t[i]) - ord("a")] -= 1
 
         for i in count:
             if i != 0:

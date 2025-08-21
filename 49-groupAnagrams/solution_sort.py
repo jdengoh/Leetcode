@@ -3,7 +3,7 @@ class Solution:
         """
         We will use a dictionary of lists to "collect" anagrams under the same key
         - To check if they are the anagrams, we can first sort and compare
-        
+
         Implementation:
         - Use defaultdict(list) to initialize a dictionary of lists
         - If the key doesn't exists, empty list will be created
@@ -16,9 +16,9 @@ class Solution:
         anagram_dict = defaultdict(list)
 
         for i in range(len(strs)):
-            sorted_str = ''.join(sorted(strs[i]))
+            sorted_str = "".join(sorted(strs[i]))
             anagram_dict[sorted_str].append(strs[i])
 
         print(anagram_dict)
 
-        return(list(anagram_dict.values()))
+        return list(anagram_dict.values())

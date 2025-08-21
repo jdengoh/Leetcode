@@ -2,21 +2,21 @@
 
 Given two strings <code>s</code> and <code>t</code>, return <code>true</code> if <code>t</code> is an <button type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="radix-:r1m:" data-state="closed" class="">anagram</button> of <code>s</code>, and <code>false</code> otherwise.
 
-**Example 1:** 
+**Example 1:**
 
 <div class="example-block">
 Input: s = "anagram", t = "nagaram"
 
 Output: true
 
-**Example 2:** 
+**Example 2:**
 
 <div class="example-block">
 Input: s = "rat", t = "car"
 
 Output: false
 
-**Constraints:** 
+**Constraints:**
 
 - <code>1 <= s.length, t.length <= 5 * 10^4</code>
 - <code>s</code> and <code>t</code> consist of lowercase English letters.

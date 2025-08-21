@@ -4,7 +4,7 @@ class Solution:
         Do not return anything, modify s in-place instead.
 
         We can use a "stack" implementation with python lists
-        
+
         However, this still requires an additional list to be created
         """
 
@@ -13,7 +13,7 @@ class Solution:
         for i in s:
             stack_list.append(i)
 
-        j=0
+        j = 0
         while stack_list:
             s[j] = stack_list.pop()
-            j+=1
+            j += 1

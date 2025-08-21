@@ -2,7 +2,7 @@ class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         """
         Use a dictionary to group anagrams by character frequency.
-        
+
         For each string, create a frequency array of 26 characters (a-z).
         Use this frequency tuple as the key to group anagrams together.
 
@@ -13,13 +13,12 @@ class Solution:
 
         for s in strs:
             # initialize a list of unique occurrence count
-            count =  [0] * 26
+            count = [0] * 26
             for char in s:
-                count[ord(char)-ord('a')] += 1
+                count[ord(char) - ord("a")] += 1
 
             # append to dict or list, using the unique occurrence tuple
             #  as the dict key
             anagram_dict[tuple(count)].append(s)
 
         return list(anagram_dict.values())
-
