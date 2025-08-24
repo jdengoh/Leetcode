@@ -30,4 +30,8 @@
 
   // MD059/descriptive-link-text : Link text should be descriptive : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md059.md
   "MD059": false,
+
+  // MD040/fenced-code-language : Fenced code blocks should have a language specified : https://github.com/DavidAnson/markdownlint/blob/v0.34.0/doc/md040.md
+  // - I am allowing this since I copy leetcode questions directly from the website
+  "MD040": false
 }
