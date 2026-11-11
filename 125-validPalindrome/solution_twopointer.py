@@ -1,52 +1,44 @@
 class Solution:
+
     def isPalindrome(self, s: str) -> bool:
-        """
-        We can use a 2 pointer strategy to solve this question.
-        - first pointer starts at the start
-        - second pointer starts from the end
+        """Two pointer method
 
-        Terminating condition will be when first pointer meets the
-            second pointer:
-        - check using `l<r` or `not l>=r`
+        Time complexity: O(n)
+        Space complexity: O(1)
 
-        Things to note:
-        - we have to check if character is alphanumeric, because
-            punctuations should be ignored
-        - letter case should not metter, so we can just compare the
-            lower case of all letters with .lower()
+        Important pointers:
+        * account for speical characters (punctuations, white space, etc...)
+        * upper and lower case should be ignored
+
+        Trick to this question is to use `ord()` function to get the ASCII code
+        * 48-57   -> '0'-'9'
+        * 65-90   -> 'A'-'Z'
+        * 97-122  -> 'a'-'z'
+
         """
-        # Define pointers
+
         l = 0
         r = len(s) - 1
 
         while l < r:
-            # Check alphanumeric
+
             if not self.isAlphaNum(s[l]):
                 l += 1
                 continue
             if not self.isAlphaNum(s[r]):
                 r -= 1
                 continue
-
-            # Terminating conidition
             if s[l].lower() != s[r].lower():
                 return False
 
-            # Move pointers
             l += 1
             r -= 1
 
         return True
 
-    def isAlphaNum(self, char):
-        """
-        checks for:
-        - Upper case character
-        - lower case character
-        - number
-        """
+    def isAlphaNum(self, c: str) -> bool:
         return (
-            (ord("A") <= ord(char) <= ord("Z"))
-            or (ord("a") <= ord(char) <= ord("z"))
-            or (ord("0") <= ord(char) <= ord("9"))
+            ord("A") <= ord(c) <= ord("Z")
+            or ord("a") <= ord(c) <= ord("z")
+            or ord("0") <= ord(c) <= ord("9")
         )
