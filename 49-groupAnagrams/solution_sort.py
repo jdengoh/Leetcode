@@ -1,24 +1,20 @@
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        """Sorting method
+
+        Time complexity: O(n klog(k))
+        Space complexity: O(n * k)
+
+        Where n is the number of strings and k is the longest string
+
         """
-        We will use a dictionary of lists to "collect" anagrams under the same key
-        - To check if they are the anagrams, we can first sort and compare
+        result = defaultdict(list)
 
-        Implementation:
-        - Use defaultdict(list) to initialize a dictionary of lists
-        - If the key doesn't exists, empty list will be created
-        - We will simply append to either an existing or empty lists
+        for s in strs:
+            # sort each string using sorted()
+            sorted_str = "".join(sorted(s))
+            # using the sorted string as the key, append the original string as value
+            result[sorted_str].append(s)
 
-        Complexity:
-        - Time: O(n * m log m), where n is the number of strings and m is the maximum length of a string
-        - Space: O(n * m), where n is the number of strings and m is the maximum length of a string
-        """
-        anagram_dict = defaultdict(list)
-
-        for i in range(len(strs)):
-            sorted_str = "".join(sorted(strs[i]))
-            anagram_dict[sorted_str].append(strs[i])
-
-        print(anagram_dict)
-
-        return list(anagram_dict.values())
+        # res.values() returns a view object on all the values, and list converts it into a list
+        return list(result.values())

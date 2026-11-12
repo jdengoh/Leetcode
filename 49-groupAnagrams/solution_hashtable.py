@@ -1,24 +1,25 @@
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        """
-        Use a dictionary to group anagrams by character frequency.
+        """Hashtable method
 
-        For each string, create a frequency array of 26 characters (a-z).
-        Use this frequency tuple as the key to group anagrams together.
+        Time complexity: O(n * k)
+        Space complexity: O(n * k)
 
-        Complexity:
-        - Time: O(m * n) where m is number of strings, n is string length
+        Where n is the number of strings and k is the longest string
+
         """
-        anagram_dict = defaultdict(list)
+        result = defaultdict(list)
 
         for s in strs:
-            # initialize a list of unique occurrence count
-            count = [0] * 26
-            for char in s:
-                count[ord(char) - ord("a")] += 1
+            char_count = [0] * 26
+            for c in s:
+                char_count[ord(c) - ord("a")] += 1
 
-            # append to dict or list, using the unique occurrence tuple
-            #  as the dict key
-            anagram_dict[tuple(count)].append(s)
+            # bug 1: cannot use a list as a dictionary key, so change to tuple
+            # bug 2: tried using .join() to create a string, but char_count has a list of integer
+            #   - "1,11,0,..." and "11,1,0,..." will produce the same "string" despite having different char count,
+            #      so it is important to preserve the separator
+            #   - best is to use a tuple to preserve it
+            result[tuple(char_count)].append(s)
 
-        return list(anagram_dict.values())
+        return list(result.values())
